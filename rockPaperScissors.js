@@ -36,8 +36,6 @@ function playRound(playerSelection, computerSelection){
     
 }
 
-// playRound(playerSelection, computerSelection );
-
 
 function game(){
     let playerScore = 0;
@@ -91,3 +89,9 @@ function game(){
 
 
 game();
+
+module.exports = {
+    getComputerChoice,
+    playRound,
+    game,
+};
