@@ -1,4 +1,4 @@
-const rockPaperScissors = require('./rockPaperScissors');
+const rockPaperScissors = require('../rockPaperScissors');
 
 test('Verify the case for tie', () => {
     expect(rockPaperScissors.playRound('rock', 'rock')).toBe('TIE');
