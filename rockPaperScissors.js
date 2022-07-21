@@ -5,7 +5,7 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection){
-    if (playerSelection !== 'rock' && 'paper' && 'scissors') 
+    if (playerSelection !== 'rock' && playerSelection !== 'paper' && playerSelection !== 'scissors') 
     
     {
         return 'INVALID'
@@ -45,32 +45,48 @@ function game(){
     for (let i = 1; i<6; i++){
         
         let playerSelection = prompt('Choose your pick', '').toLowerCase();
-        console.log('Your pick for round ' + i + ' was ' + playerSelection);
 
-        const computerSelection = getComputerChoice();
-        console.log('Computer pick for round ' + i + ' was ' + computerSelection);
+        let computerSelection = getComputerChoice();
+
 
         let result = playRound(playerSelection,computerSelection)
 
-        // if (result === 'INVALID'){
-        //     console.log('This was an invalid selection.')
-        //     break;
-        // }
+        if (result === 'INVALID'){
+        
+            break;
+        }
 
-        if (result === 'WIN'){
-            playerScore++
+        else if (result === 'WIN'){
+            playerScore = playerScore + 1
+            console.log('Your pick for round ' + i + ' was ' + playerSelection);
+            console.log('Computer pick for round ' + i + ' was ' + computerSelection);
+            console.log('You Won! At the end of round ', + i)
+            console.log('The player score was ' + playerScore + '. And the computer score was ' + computerScore);
+            console.log('**********************************************')
+
         }
 
         else if (result === 'LOSE'){
-            computerScore++
+            computerScore = computerScore + 1
+            console.log('Your pick for round ' + i + ' was ' + playerSelection);
+            console.log('Computer pick for round ' + i + ' was ' + computerSelection);
+            console.log('You Lost. At the end of round ', + i)
+            console.log('The player score was ' + playerScore + '. And the computer score was ' + computerScore);
+            console.log('**********************************************')
         }
 
-        else 
+        else if (result === 'TIE'){
+            console.log('Your pick for round ' + i + ' was ' + playerSelection);
+            console.log('Computer pick for round ' + i + ' was ' + computerSelection);
+            console.log('It was a tie. Scores are the same.');
+            console.log('**********************************************')
+            
+        }
+        else
             continue
-        
     }
     
-    console.log('The final player score was ' + playerScore + '. And the final computer score was ' + computerScore);
+    console.log('THE END. The final player score was ' + playerScore + '. And the final computer score was ' + computerScore);
 }
 
 
