@@ -1,23 +1,14 @@
-
-let playerSelection = prompt('Choose your pick', '').toLowerCase();
-console.log('Your pick for the game was ' + playerSelection);
-
-
 function getComputerChoice() {
     let computerOptions = ['rock', 'paper', 'scissors'];
     let computerPick = computerOptions[Math.floor(Math.random() * computerOptions.length)];
-    console.log('The computer picked ' + computerPick);
     return computerPick;
 }
 
-const computerSelection = getComputerChoice();
-
-
 function playRound(playerSelection, computerSelection){
-    if (playerSelection !== 'rock' && 'paper' && 'scissors') {
-        console.log('INSIDE FUNCTION Players pick is ' + playerSelection);
-        console.log('INSIDE FUNCTION Computer pick is ' + computerSelection);
-        return console.log('You did not pick a valid option. The end')
+    if (playerSelection !== 'rock' && 'paper' && 'scissors') 
+    
+    {
+        return 'INVALID'
     }
 
     else if (playerSelection === 'rock' && computerSelection === 'rock' ||
@@ -25,18 +16,14 @@ function playRound(playerSelection, computerSelection){
     playerSelection === 'scissors' && computerSelection === 'scissors')
     
     {
-        console.log('INSIDE FUNCTION Players pick is ' + playerSelection);
-        console.log('INSIDE FUNCTION Computer pick is ' + computerSelection);
-        return console.log('You guys tied');
+        return 'TIE';
 
     } else if (playerSelection === 'rock' && computerSelection === 'scissors' ||
     playerSelection === 'paper' && computerSelection === 'rock' ||
     playerSelection === 'scissors' && computerSelection === 'paper')
     
     {
-        console.log('INSIDE FUNCTION Players pick is ' + playerSelection);
-        console.log('INSIDE FUNCTION Computer pick is ' + computerSelection);
-        return console.log('The player won!')
+        return 'WIN'
     
 
     } else (playerSelection === 'rock' && computerSelection === 'paper' ||
@@ -44,11 +31,47 @@ function playRound(playerSelection, computerSelection){
     playerSelection === 'scissors' && computerSelection === 'rock')
 
     {   
-        console.log('INSIDE FUNCTION Players pick is ' + playerSelection);
-        console.log('INSIDE FUNCTION Computer pick is ' + computerSelection);
-        return console.log ('The player lost')
+        return 'LOSE'
     }
     
 }
 
-playRound(playerSelection, computerSelection );
+// playRound(playerSelection, computerSelection );
+
+
+function game(){
+    let playerScore = 0;
+    let computerScore = 0;
+    for (let i = 1; i<6; i++){
+        
+        let playerSelection = prompt('Choose your pick', '').toLowerCase();
+        console.log('Your pick for round ' + i + ' was ' + playerSelection);
+
+        const computerSelection = getComputerChoice();
+        console.log('Computer pick for round ' + i + ' was ' + computerSelection);
+
+        let result = playRound(playerSelection,computerSelection)
+
+        // if (result === 'INVALID'){
+        //     console.log('This was an invalid selection.')
+        //     break;
+        // }
+
+        if (result === 'WIN'){
+            playerScore++
+        }
+
+        else if (result === 'LOSE'){
+            computerScore++
+        }
+
+        else 
+            continue
+        
+    }
+    
+    console.log('The final player score was ' + playerScore + '. And the final computer score was ' + computerScore);
+}
+
+
+game();
