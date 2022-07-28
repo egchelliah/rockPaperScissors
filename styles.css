@@ -12,9 +12,11 @@
 
 }
 
-.player_buttons .computer_buttons{
+.player_buttons, .computer_buttons{
     display: flex;
-    gap: 10px;
+    gap: 40px;
+    margin-top: 25px;
+
 }
 
 button:active{
@@ -29,4 +31,29 @@ button{
 
 h1, h2, h3{
     text-align: center;
+    border: 30px;
+}
+
+.image{
+    width: 100px;
+    height: 100px;
+    /* padding: 30px; */
+    padding: 20px 8px 20px 8px;
+    border: 1px solid black;
+    transition: all .3s ease-in-out;
+    box-shadow: 4px 3px 10px rgb(0 0 0 / 0.4);
+}
+
+.image:hover{
+    transform: scale(1.2) rotate(0.01deg);
+}
+
+.image:active{
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.scores{
+    display: flex;
+    justify-content: center;
+    gap: 50px;
 }
