@@ -1,3 +1,22 @@
+let playerScoreElement = document.getElementById('player_score')
+let computerScoreElement = document.getElementById('computer_score')
+
+const onClick = (event) => {
+    if(event.srcElement.id === 'rock'){
+        game('rock')
+    } else if(event.srcElement.id === 'paper'){
+        game('paper')
+    } else if(event.srcElement.id === 'scissors'){
+        game('scissors')
+    }
+        console.log(event.srcElement.id)
+    }
+
+window.addEventListener('click', onClick);
+
+
+
+
 function getComputerChoice() {
     let computerOptions = ['rock', 'paper', 'scissors'];
     let computerPick = computerOptions[Math.floor(Math.random() * computerOptions.length)];
@@ -5,13 +24,7 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection){
-    if (playerSelection !== 'rock' && playerSelection !== 'paper' && playerSelection !== 'scissors') 
-    
-    {
-        return 'INVALID'
-    }
-
-    else if (playerSelection === 'rock' && computerSelection === 'rock' ||
+    if (playerSelection === 'rock' && computerSelection === 'rock' ||
     playerSelection === 'paper' && computerSelection === 'paper' ||
     playerSelection === 'scissors' && computerSelection === 'scissors')
     
@@ -37,28 +50,20 @@ function playRound(playerSelection, computerSelection){
 }
 
 
-function game(){
-    let playerScore = 0;
-    let computerScore = 0;
-    for (let i = 1; i<6; i++){
+function game(playerSelection){
+    let playerScore = parseInt(playerScoreElement.textContent);
+    let computerScore = parseInt(computerScoreElement.textContent);
         
-        let playerSelection = prompt('Choose your pick', '').toLowerCase();
+    let computerSelection = getComputerChoice();
+    let result = playRound(playerSelection,computerSelection)
 
-        let computerSelection = getComputerChoice();
 
-
-        let result = playRound(playerSelection,computerSelection)
-
-        if (result === 'INVALID'){
-        
-            break;
-        }
-
-        else if (result === 'WIN'){
+        if (result === 'WIN'){
             playerScore = playerScore + 1
-            console.log('Your pick for round ' + i + ' was ' + playerSelection);
-            console.log('Computer pick for round ' + i + ' was ' + computerSelection);
-            console.log('You Won! At the end of round ', + i)
+            playerScoreElement.textContent = String(playerScore);
+            console.log('Your pick for round  was ' + playerSelection);
+            console.log('Computer pick for round was ' + computerSelection);
+            console.log('You Won! At the end of round ')
             console.log('The player score was ' + playerScore + '. And the computer score was ' + computerScore);
             console.log('**********************************************')
 
@@ -66,32 +71,29 @@ function game(){
 
         else if (result === 'LOSE'){
             computerScore = computerScore + 1
-            console.log('Your pick for round ' + i + ' was ' + playerSelection);
-            console.log('Computer pick for round ' + i + ' was ' + computerSelection);
-            console.log('You Lost. At the end of round ', + i)
+            computerScoreElement.textContent = String(computerScore)
+            console.log('Your pick for round was ' + playerSelection);
+            console.log('Computer pick for round was ' + computerSelection);
+            console.log('You Lost. At the end of round ')
             console.log('The player score was ' + playerScore + '. And the computer score was ' + computerScore);
             console.log('**********************************************')
         }
 
         else if (result === 'TIE'){
-            console.log('Your pick for round ' + i + ' was ' + playerSelection);
-            console.log('Computer pick for round ' + i + ' was ' + computerSelection);
+            console.log('Your pick for round  was ' + playerSelection);
+            console.log('Computer pick for round was ' + computerSelection);
             console.log('It was a tie. Scores are the same.');
             console.log('**********************************************')
             
         }
-        else
-            continue
+
     }
-    
-    console.log('THE END. The final player score was ' + playerScore + '. And the final computer score was ' + computerScore);
-}
 
 
-game();
 
-module.exports = {
-    getComputerChoice,
-    playRound,
-    game,
-};
+// game();
+
+// module.exports =
+//     getComputerChoice,
+//     playRound,
+//     game,
