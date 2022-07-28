@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
-    <!-- <script src="./rockPaperScissors.js" defer> </script> -->
+    <script src="./rockPaperScissors.js" defer> </script>
     <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
@@ -15,15 +15,15 @@
             <h2>Player</h2>
             <div class="scores">
                 <h3>Score : </h3>
-                <h3 class="player_score">0</h3>
+                <h3 id="player_score">0</h3>
             </div>
             <div class="player_buttons">
-                <div class="player_selection" id="rock"></div>
-                    <img src="./images/rps4.png" alt="rock" class="image">
-                <div class="player_selection" id="paper"></div>
-                    <img src="./images/rps5.png" alt="rock" class="image">
-                <div class="player_selection" id="scissors"></div>
-                    <img src="./images/rps6.png" alt="rock" class="image">  
+                <div class="player_selection"></div>
+                    <img id="rock" src="./images/rps4.png" alt="rock" class="image">
+                <div class="player_selection"></div>
+                    <img id="paper" src="./images/rps5.png" alt="rock" class="image">
+                <div class="player_selection"></div>
+                    <img id="scissors" src="./images/rps6.png" alt="rock" class="image">  
 
             </div>
         </div>
@@ -31,7 +31,7 @@
             <h2>Computer</h2>
             <div class="scores">
                 <h3>Score : </h3>
-                <h3 class="computer_score">0</h3>
+                <h3 id="computer_score">0</h3>
             </div>
             <div class="computer_buttons">
                 <div class="computer_selection" id="rock"></div>
