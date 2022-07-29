@@ -1,5 +1,6 @@
 let playerScoreElement = document.getElementById('player_score')
 let computerScoreElement = document.getElementById('computer_score')
+let roundInfo = document.getElementById('round')
 
 const onClick = (event) => {
     if(event.srcElement.id === 'rock'){
@@ -8,6 +9,8 @@ const onClick = (event) => {
         game('paper')
     } else if(event.srcElement.id === 'scissors'){
         game('scissors')
+    } else if(event.srcElement.id === 'playagain'){
+        resetGame()
     }
         console.log(event.srcElement.id)
     }
@@ -61,37 +64,67 @@ function game(playerSelection){
         if (result === 'WIN'){
             playerScore = playerScore + 1
             playerScoreElement.textContent = String(playerScore);
-            console.log('Your pick for round  was ' + playerSelection);
-            console.log('Computer pick for round was ' + computerSelection);
-            console.log('You Won! At the end of round ')
-            console.log('The player score was ' + playerScore + '. And the computer score was ' + computerScore);
-            console.log('**********************************************')
+            roundInfo.textContent = 'You Won! ' + playerSelection + ' beats ' + computerSelection;
+            // console.log('Your pick for round  was ' + playerSelection);
+            // console.log('Computer pick for round was ' + computerSelection);
+            // console.log('You Won! At the end of round ')
+            // console.log('The player score was ' + playerScore + '. And the computer score was ' + computerScore);
+            // console.log('**********************************************')
 
         }
 
         else if (result === 'LOSE'){
             computerScore = computerScore + 1
             computerScoreElement.textContent = String(computerScore)
-            console.log('Your pick for round was ' + playerSelection);
-            console.log('Computer pick for round was ' + computerSelection);
-            console.log('You Lost. At the end of round ')
-            console.log('The player score was ' + playerScore + '. And the computer score was ' + computerScore);
-            console.log('**********************************************')
+            roundInfo.textContent = 'You Lose! ' + playerSelection + ' does not beat ' + computerSelection;
+            // console.log('Your pick for round was ' + playerSelection);
+            // console.log('Computer pick for round was ' + computerSelection);
+            // console.log('You Lost. At the end of round ')
+            // console.log('The player score was ' + playerScore + '. And the computer score was ' + computerScore);
+            // console.log('**********************************************')
         }
 
         else if (result === 'TIE'){
-            console.log('Your pick for round  was ' + playerSelection);
-            console.log('Computer pick for round was ' + computerSelection);
-            console.log('It was a tie. Scores are the same.');
-            console.log('**********************************************')
+            roundInfo.textContent = 'It was a tie. Both players picked ' + playerSelection;
+            // console.log('Your pick for round  was ' + playerSelection);
+            // console.log('Computer pick for round was ' + computerSelection);
+            // console.log('It was a tie. Scores are the same.');
+            // console.log('**********************************************')
             
         }
 
+    if(playerScoreElement.textContent === '5' || computerScoreElement.textContent === '5'){
+        if(playerScoreElement.textContent > computerScoreElement.textContent){
+            // alert('GAME OVER. YOU WON')
+            document.querySelector('.player').style.backgroundColor= 'rgba(0, 0, 0, 0.1)';
+            roundInfo.textContent = 'game over. you won!'
+        }
+
+        else{
+            document.querySelector('.computer').style.backgroundColor= 'rgba(0, 0, 0, 0.1)'
+            roundInfo.textContent = 'game over. you lose.'
+        }
+
+
+        document.querySelector('.player').style.pointerEvents='none'
+        document.querySelector('#playagain').hidden=false
+
     }
 
+    }
+
+    function resetGame(){
+        playerScoreElement.textContent = '0';
+        computerScoreElement.textContent = '0';
+        roundInfo.textContent = 'pick an option to start the game';
+        document.querySelector('.player').style.pointerEvents='auto'
+        document.querySelector('#playagain').hidden=true
+        document.querySelector('.computer').style.backgroundColor= 'transparent'
+        document.querySelector('.player').style.backgroundColor= 'transparent'
 
 
-// game();
+    }
+
 
 // module.exports =
 //     getComputerChoice,
