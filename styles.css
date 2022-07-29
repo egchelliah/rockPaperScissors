@@ -14,7 +14,7 @@ h1, footer, div, ul, p, h2, h3, h4{
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     width: 300px;
     height: 50px;
     text-align: center;
@@ -56,9 +56,9 @@ h1, h2, h3{
     height: 70px;
     /* padding: 30px; */
     padding: 20px 8px 20px 8px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     transition: all .3s ease-in-out;
-    box-shadow: 4px 3px 10px rgb(0 0 0 / 0.4);
+    /* box-shadow: 4px 3px 10px rgb(0 0 0 / 0.4); */
 }
 .profile{
     width: 50px;
@@ -83,5 +83,6 @@ h1, h2, h3{
 button{
     width:100px;
     height: 40px;
+    background-color: transparent;
     /* display: none; */
 }
