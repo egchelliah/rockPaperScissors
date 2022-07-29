@@ -5,18 +5,17 @@ let roundInfo = document.getElementById('round')
 function resetPicks(){
     
     document.querySelector('#rock_computer').style.transform = 'scale(1)'
-    document.querySelector('#scissors_computer').style.transform = 'scale(1)'
     document.querySelector('#paper_computer').style.transform = 'scale(1)'
+    document.querySelector('#scissors_computer').style.transform = 'scale(1)'
 
     document.querySelector('#rock').style.transform = 'scale(1)'
-    document.querySelector('#rock').style.transform = 'scale(1)'
+    document.querySelector('#paper').style.transform = 'scale(1)'
     document.querySelector('#scissors').style.transform = 'scale(1)'    
 }
 
 const onClick = (event) => {
 
     resetPicks();
-
 
     if(event.srcElement.id === 'rock'){
         event.srcElement.style.transform='scale(1.5)'
