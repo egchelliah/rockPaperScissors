@@ -2,12 +2,30 @@ let playerScoreElement = document.getElementById('player_score')
 let computerScoreElement = document.getElementById('computer_score')
 let roundInfo = document.getElementById('round')
 
+function resetPicks(){
+    
+    document.querySelector('#rock_computer').style.transform = 'scale(1)'
+    document.querySelector('#scissors_computer').style.transform = 'scale(1)'
+    document.querySelector('#paper_computer').style.transform = 'scale(1)'
+
+    document.querySelector('#rock').style.transform = 'scale(1)'
+    document.querySelector('#rock').style.transform = 'scale(1)'
+    document.querySelector('#scissors').style.transform = 'scale(1)'    
+}
+
 const onClick = (event) => {
+
+    resetPicks();
+
+
     if(event.srcElement.id === 'rock'){
+        event.srcElement.style.transform='scale(1.5)'
         game('rock')
     } else if(event.srcElement.id === 'paper'){
+        event.srcElement.style.transform='scale(1.5)'
         game('paper')
     } else if(event.srcElement.id === 'scissors'){
+        event.srcElement.style.transform='scale(1.5)'
         game('scissors')
     } else if(event.srcElement.id === 'playagain'){
         resetGame()
@@ -21,8 +39,23 @@ window.addEventListener('click', onClick);
 
 
 function getComputerChoice() {
+    let card =''
     let computerOptions = ['rock', 'paper', 'scissors'];
     let computerPick = computerOptions[Math.floor(Math.random() * computerOptions.length)];
+
+    if (computerPick === 'rock'){
+        card = '#rock_computer'
+    } else if(computerPick=== 'paper'){
+        card = '#paper_computer'
+    } else if(computerPick==='scissors'){
+        card = '#scissors_computer'
+    }
+
+
+    document.querySelector(card).style.transform = 'scale(1.7)'
+
+
+
     return computerPick;
 }
 
@@ -52,13 +85,37 @@ function playRound(playerSelection, computerSelection){
     
 }
 
+function computerCardHighlight(){
+    
+    if (computerPick === 'rock'){
+        let card = '#rock_computer'
+    } else if(computerPick=== 'paper'){
+        let card = '#paper_computer'
+    } else if(computerPick==='scissors'){
+        let card = '#scissors_computer'
+    }
+
+    document.querySelector.apply(card).style.backgroundColor='rgba(0,0,0,0.4'
+
+
+}
+
+
+
 
 function game(playerSelection){
     let playerScore = parseInt(playerScoreElement.textContent);
     let computerScore = parseInt(computerScoreElement.textContent);
         
     let computerSelection = getComputerChoice();
+
+
+
+
+
     let result = playRound(playerSelection,computerSelection)
+
+
 
 
         if (result === 'WIN'){
