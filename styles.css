@@ -1,14 +1,31 @@
+h1, footer, div, ul, p, h2, h3, h4{
+    /* border: solid black; */
+    font-family: futura;
+}
+
 .everyone {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap:10px;
 }
 
-.player .computer {
+.round{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    width: 300px;
+    height: 50px;
+    text-align: center;
+}
+
+.player, .computer {
     display: flex;
     flex-direction: column;
     /* justify-content: center; */
     align-items: center;
+    padding: 10px;
 
 }
 
@@ -31,24 +48,29 @@ button{
 
 h1, h2, h3{
     text-align: center;
-    border: 30px;
+    font-weight: lighter;
 }
 
- .image{
-    width: 100px;
-    height: 100px;
+ .playerimage, .computerimage{
+    width: 70px;
+    height: 70px;
     /* padding: 30px; */
     padding: 20px 8px 20px 8px;
     border: 1px solid black;
     transition: all .3s ease-in-out;
     box-shadow: 4px 3px 10px rgb(0 0 0 / 0.4);
 }
+.profile{
+    width: 50px;
+    height: 50px;
+    transition: all .3s ease-in-out;
+}
 
-.image:hover{
+.playerimage:hover{
     transform: scale(1.2) rotate(0.01deg);
 }
 
-.image:active{
+.playerimage:active{
     background-color: rgba(0, 0, 0, 0.4);
 }
 
@@ -56,4 +78,10 @@ h1, h2, h3{
     display: flex;
     justify-content: center;
     gap: 50px;
+}
+
+button{
+    width:100px;
+    height: 40px;
+    /* display: none; */
 }
