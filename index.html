@@ -4,42 +4,44 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock Paper Scissors</title>
+    <title>rock paper scissors</title>
     <script src="./rockPaperScissors.js" defer> </script>
     <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-    <h1>Rock, Paper, Scissors?</h1>
+    <h1 class="gametitle" >rock, paper, scissors?</h1>
     <div class="everyone">
         <div class="player">
-            <h2>Player</h2>
+            <img id="player_picture" src="./images/player.png" alt="player" class="profile">
             <div class="scores">
-                <h3>Score : </h3>
+                <h3>score : </h3>
                 <h3 id="player_score">0</h3>
             </div>
             <div class="player_buttons">
                 <div class="player_selection"></div>
-                    <img id="rock" src="./images/rps4.png" alt="rock" class="image">
+                    <img id="rock" src="./images/rps4.png" alt="rock" class="playerimage">
                 <div class="player_selection"></div>
-                    <img id="paper" src="./images/rps5.png" alt="rock" class="image">
+                    <img id="paper" src="./images/rps5.png" alt="rock" class="playerimage">
                 <div class="player_selection"></div>
-                    <img id="scissors" src="./images/rps6.png" alt="rock" class="image">  
+                    <img id="scissors" src="./images/rps6.png" alt="rock" class="playerimage">  
 
             </div>
         </div>
+        <div class="round" id="round">pick an option to start the game</div>
+        <button hidden class="playagain" id="playagain">play again</button>
         <div class = "computer">
-            <h2>Computer</h2>
+            <img id="computer_picture" src="./images/computer.png" alt="player" class="profile">
             <div class="scores">
-                <h3>Score : </h3>
+                <h3>score : </h3>
                 <h3 id="computer_score">0</h3>
             </div>
             <div class="computer_buttons">
                 <div class="computer_selection" id="rock"></div>
-                    <img src="./images/rps1.png" alt="rock" class="image">
+                    <img src="./images/rps1.png" alt="rock" class="computerimage">
                 <div class="computer_selection" id="paper"></div>
-                    <img src="./images/rps2.png" alt="paper" class="image">
+                    <img src="./images/rps2.png" alt="paper" class="computerimage">
                 <div class="computer_selection" id="scissors"></div>
-                    <img src="./images/rps3.png" alt="paper" class="image">
+                    <img src="./images/rps3.png" alt="paper" class="computerimage">
             </div>
         </div>
     </div>
