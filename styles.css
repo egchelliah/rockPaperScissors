@@ -3,6 +3,10 @@ h1, footer, div, ul, p, h2, h3, h4{
     font-family: futura;
 }
 
+h1{
+    margin-bottom: 45px;
+}
+
 .everyone {
     display: flex;
     flex-direction: column;
@@ -63,6 +67,7 @@ h1, h2, h3{
 .profile{
     width: 50px;
     height: 50px;
+    margin-bottom: 5px;
     transition: all .3s ease-in-out;
 }
 
@@ -81,4 +86,12 @@ button{
     height: 40px;
     background-color: transparent;
     /* display: none; */
+}
+
+button:active{
+    background-color: transparent;
+}
+
+.profile{
+    margin-bottom: 5px;
 }
