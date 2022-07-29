@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
+    <audio id="clicksound" src="./sounds/clickSound.wav" type="audio/mpeg" ></audio>
+    <audio id="playagainsound" src="./sounds/playagain.wav" type="audio/mpeg" ></audio>
+    <audio id="gamewin" src="./sounds/gamewin.wav" type="audio/mpeg" ></audio>
+    <audio id="gameover" src="./sounds/gameover.wav" type="audio/mpeg" ></audio>
     <h1 class="gametitle" >rock, paper, scissors?</h1>
     <div class="everyone">
         <div class="player">
@@ -18,11 +22,11 @@
             </div>
             <div class="player_buttons">
                 <div class="player_selection"></div>
-                    <img id="rock" src="./images/rps4.png" alt="rock" class="playerimage">
+                    <img onclick="bell(clickSound)" id="rock" src="./images/rps4.png" alt="rock" class="playerimage">
                 <div class="player_selection"></div>
-                    <img id="paper" src="./images/rps5.png" alt="rock" class="playerimage">
+                    <img onclick="bell(clickSound)" id="paper" src="./images/rps5.png" alt="rock" class="playerimage">
                 <div class="player_selection"></div>
-                    <img id="scissors" src="./images/rps6.png" alt="rock" class="playerimage">  
+                    <img onclick="bell(clickSound)" id="scissors" src="./images/rps6.png" alt="rock" class="playerimage">  
 
             </div>
         </div>
@@ -41,8 +45,9 @@
                     <img id="scissors_computer" src="./images/rps3.png" alt="paper" class="computerimage">
             </div>
         </div>
-        <button hidden class="playagain" id="playagain">play again</button>
+        <button onclick="bell(playagainsound)" hidden class="playagain" id="playagain">play again</button>
     </div>
+
 
 
     
