@@ -1,6 +1,7 @@
-h1, footer, div, ul, p, h2, h3, h4{
-    /* border: solid black; */
-    font-family: futura;
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+*{
+    font-family: 'VT323', monospace;
 }
 
 h1{
@@ -71,9 +72,9 @@ h1, h2, h3{
     transition: all .3s ease-in-out;
 }
 
-.playerimage:hover{
+/* .playerimage:hover{
     transform: scale(1.7) rotate(0.01deg);
-}
+} */
 
 .scores{
     display: flex;
@@ -86,6 +87,11 @@ button{
     height: 40px;
     background-color: transparent;
     /* display: none; */
+    border:none;
+}
+
+button:hover{
+    transform: scale(1.7);
 }
 
 button:active{

@@ -7,6 +7,16 @@ let playerScoreElement = document.getElementById('player_score')
 let computerScoreElement = document.getElementById('computer_score')
 let roundInfo = document.getElementById('round')
 
+
+document.querySelectorAll('.playerimage').forEach(e => e.addEventListener("mouseover", (event) => {
+    event.target.style.transform='scale(1.7)'
+}))
+
+document.querySelectorAll('.playerimage').forEach(e => e.addEventListener("mouseout", (event) => {
+    event.target.style.transform='scale(1)'
+}))
+
+
 // Function to play various sounds
 function bell(sound){
     sound.play();
