@@ -3,27 +3,21 @@ const playAgainSound = document.getElementById("playagain");
 const gameWinSound = document.getElementById("gamewin");
 const gameOverSound = document.getElementById("gameover");
 
+let playerScoreElement = document.getElementById('player_score')
+let computerScoreElement = document.getElementById('computer_score')
+let roundInfo = document.getElementById('round')
+
+// Function to play various sounds
 function bell(sound){
     sound.play();
 }
 
 
-let playerScoreElement = document.getElementById('player_score')
-let computerScoreElement = document.getElementById('computer_score')
-let roundInfo = document.getElementById('round')
-
 function resetPicks(){
-    
-    document.querySelector('#computer_picture').style.transform='scale(1)'
-    document.querySelector('#player_picture').style.transform='scale(1)'
 
-    document.querySelector('#rock_computer').style.transform = 'scale(1)'
-    document.querySelector('#paper_computer').style.transform = 'scale(1)'
-    document.querySelector('#scissors_computer').style.transform = 'scale(1)'
-
-    document.querySelector('#rock').style.transform = 'scale(1)'
-    document.querySelector('#paper').style.transform = 'scale(1)'
-    document.querySelector('#scissors').style.transform = 'scale(1)'    
+    document.querySelectorAll('img').forEach(e =>{
+        e.style.transform='scale(1)'
+    })  
 }
 
 const onClick = (event) => {
@@ -117,12 +111,6 @@ function game(playerSelection){
             playerScore = playerScore + 1
             playerScoreElement.textContent = String(playerScore);
             roundInfo.textContent = 'you win! ' + playerSelection + ' beats ' + computerSelection;
-            // console.log('Your pick for round  was ' + playerSelection);
-            // console.log('Computer pick for round was ' + computerSelection);
-            // console.log('You Won! At the end of round ')
-            // console.log('The player score was ' + playerScore + '. And the computer score was ' + computerScore);
-            // console.log('**********************************************')
-
         }
 
         else if (result === 'LOSE'){
